@@ -1,0 +1,52 @@
+services:
+  node1:
+    build: .
+    container_name: node1
+    ports:
+      - "2221:22"
+    networks:
+      ansible-net:
+        ipv4_address: 172.25.0.11
+
+  node2:
+    build: .
+    container_name: node2
+    ports:
+      - "2222:22"
+    networks:
+      ansible-net:
+        ipv4_address: 172.25.0.12
+
+  node3:
+    build: .
+    container_name: node3
+    ports:
+      - "2223:22"
+    networks:
+      ansible-net:
+        ipv4_address: 172.25.0.13
+
+  node4:
+    build: .
+    container_name: node4
+    ports:
+      - "2224:22"
+    networks:
+      ansible-net:
+        ipv4_address: 172.25.0.14
+
+  node5:
+    build: .
+    container_name: node5
+    ports:
+      - "2225:22"
+    networks:
+      ansible-net:
+        ipv4_address: 172.25.0.15
+
+networks:
+  ansible-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/24
